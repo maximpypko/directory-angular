@@ -1,0 +1,10 @@
+.changeForm{
+  width: max-content;
+  margin: 30px auto;
+}
+.change__title{
+  text-transform: uppercase;
+}
+.changeForm__link{
+  color: #fff;
+}
