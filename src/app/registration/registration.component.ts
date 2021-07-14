@@ -1,30 +1,52 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup,  Validators  } from '@angular/forms';
+
+import { Login } from '../models/login';
+import { LoginRequest } from '../requests/loginRequest';
 
 @Component({
   selector: 'form-field-overview-example',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css']
 })
-export class RegistrationComponent implements OnInit {
-  
-  hide = true;
-  loginForm = this.fb.group({
-    login: '',
-    password: '',
-    confirmPassword:''
-  });
 
-  constructor(
-    private fb: FormBuilder
-  ) {}
+
+export class RegistrationComponent implements OnInit {
+
+  hide = true;
+  loginForm!: FormGroup;
   
-  onSubmit() {
-    //обработчик формы
-    console.log(this.loginForm);
-    this.loginForm.reset()
+  constructor(
+    private formBuilder: FormBuilder,
+    private loginRequest: LoginRequest
+  ) { }
+  
+  ngOnInit(): void {
+    this.loginForm = this.formBuilder.group({
+      login: '',
+      password: '',
+      confirmPassword: ''
+  });
   }
 
-  ngOnInit(): void {
+  onSubmit() {
+    const { login, password, confirmPassword } = this.loginForm.value;
+    
+    if (!this.loginForm.invalid) {
+     console.log(login, password, confirmPassword);
+     
+      const loginObject: Login = {
+        email: login,
+        password
+      };
+      
+      this.loginRequest.login(loginObject).subscribe(response => {
+        console.log(response);
+
+      });
+      this.loginForm.reset()
+    } else {
+      console.log('Passwords not coincidence');
+    }
   }
 }
