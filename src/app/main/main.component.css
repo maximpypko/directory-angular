@@ -1,0 +1,60 @@
+.home__header{
+  padding: 10px 30px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #424242;
+  color: #C7C7C7;
+}
+
+.home__title{
+  margin: 0;
+  vertical-align: center;
+}
+
+.home__button{
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #C7C7C7;
+  border-radius: 3px;
+  transition: .2s ease-in;
+}
+
+.home__button:hover{
+  background-color: #9D9D9D;
+
+}
+.home__main{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  list-style-type: none;
+  padding: 0;
+}
+
+.home__card{
+  padding-left: 20px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid grey;
+  background-color: #E1E1E1;
+  transition: .2s ease-in;
+  cursor: pointer;
+}
+
+.home__card:hover{
+  background-color: #CACACA;
+}
+
+.home__card h2,
+.home__card p{
+  margin-bottom: 0;
+}
+
+.home__progress-bar--hide{
+  visibility: hidden;
+}
+
+.home__progress-bar{
+  color: aqua;
+}

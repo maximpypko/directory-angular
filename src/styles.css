@@ -6,6 +6,15 @@ body {
      font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+.container{
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
+}
+
 .form {
      position: absolute;
      top: 50%;
@@ -17,18 +26,18 @@ body {
      display: flex;
      flex-direction: column;
      border: 1px solid grey;
-   }
+}
    
-   .form__item,
-   .form__button{
-     background-color: grey;
-   }
-   
-   .form__item:not(:last-child){
-     margin-bottom: 10px;
-   }
-   
-   .form__button{
-     padding: 10px;
-     color: #fff;
-   }
+.form__item,
+.form__button{
+  background-color: grey;
+}
+
+.form__item:not(:last-child){
+  margin-bottom: 10px;
+}
+
+.form__button{
+  padding: 10px;
+  color: #fff;
+}

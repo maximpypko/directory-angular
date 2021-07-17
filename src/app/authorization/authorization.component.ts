@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { authorizationRequest } from '../requests/authorizationRequest';
+import { Login } from '../models/login';
+import { TokenService } from '../service/tokenService'
 
 @Component({
   selector: 'app-authorization',
@@ -9,22 +13,42 @@ import { FormBuilder } from '@angular/forms';
 export class AuthorizationComponent implements OnInit {
 
   hide = true;
-  authorizationForm = this.fb.group({
-    login: '',
-    password: ''
-  });
+  authorizationForm!: FormGroup;
 
   constructor(
-    private fb: FormBuilder
+    private formBuilder: FormBuilder,
+    private loginRequest: authorizationRequest,
+    private router: Router,
+    private tokenService: TokenService
+
   ) {}
-  
-  onSubmit() {
-    //обработчик формы
-    console.log(this.authorizationForm);
-    this.authorizationForm.reset()
-  }
 
   ngOnInit(): void {
+    this.authorizationForm = this.formBuilder.group({
+      login: '',
+      password: ''
+    });
   }
 
+  onSubmit() {
+    const {login, password} = this.authorizationForm.value;
+
+    if (login && password) {
+      const loginObject: Login = {
+        email: login,
+        password
+      };
+      
+      this.loginRequest.login(loginObject).subscribe(response => {
+      
+        if (response) {
+          this.tokenService.setToken(response.token);
+          this.router.navigateByUrl("home")
+        }
+
+      });
+    } else {
+      alert('Passwords not coincidence');
+    }
+  }
 }

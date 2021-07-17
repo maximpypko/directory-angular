@@ -8,13 +8,14 @@ import { Login } from "../models/login";
 @Injectable({
   providedIn: 'root'
 })
-export class LoginRequest {
+
+export class authorizationRequest {
 
   constructor(
     private http: HttpClient
   ) { }
 
   public login(body: Login): Observable<any> {
-    return this.http.post(Api.URL + "/register", body, Api.headers);
+    return this.http.post(Api.URL + "/login", body, Api.headers);
   } 
 }

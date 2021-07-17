@@ -1,0 +1,16 @@
+<div class="user-details-wrapper">
+  <mat-card class="example-card user-details">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header_image"></div>
+      <mat-card-title>{{userDetails.last_name}} {{userDetails.first_name}}</mat-card-title>
+      <mat-card-subtitle>{{userDetails.email}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src={{userDetails.avatar}} alt="User photo">
+    <mat-card-actions class="user-details__butttons">
+      <button mat-button class="user-details__buttons-item" (click)="showEditForm()">Edit
+        {{userDetails.last_name}}</button>
+      <button mat-button class="user-details__buttons-item" (click)="deleteUser()">Delete
+        {{userDetails.last_name}}</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

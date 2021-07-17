@@ -1,0 +1,16 @@
+<div class="home">
+  <div class="home__header">
+    <h1 class="home__title">Users</h1>
+    <button mat-raised-button class="home__button" (click)="showForm()">Add user</button>
+  </div>
+  <ul class="home__main" [ngClass]="{'home__progress-bar--hide' : !hideProgressBar}">
+    <li *ngFor="let user of users" class="home__card" (click)="showUser(user.id)">
+      <img src={{user.avatar}} alt="avatar">
+      <h2>{{user.first_name}} {{user.last_name}}</h2>
+      <p>{{user.email}}</p>
+    </li>
+  </ul>
+  <app-paginator [ngClass]="{'home__progress-bar--hide' : !hideProgressBar}"></app-paginator>
+</div>
+<app-spinner class="home__progress-bar" [ngClass]="{'home__progress-bar--hide' : hideProgressBar}">
+</app-spinner>

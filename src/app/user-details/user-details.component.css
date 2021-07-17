@@ -1,0 +1,32 @@
+.user-details-wrapper{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-details-wrapper--opacity{
+  opacity: .3;
+}
+
+.user-details{
+  width: 50%;
+}
+.user-details__butttons{
+  display: flex;
+  justify-content: space-around;
+  padding-top: 0;
+}
+
+.user-details__buttons-item{
+  padding: 5px 10px;
+  margin-bottom: 10px;
+}
+
+.user-details__visibleEditForm {
+  border: 3px solid red;
+  visibility: hidden;
+}
+.user-details__unVisibleEditForm{
+  border: 3px solid green;
+}
