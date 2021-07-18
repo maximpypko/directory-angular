@@ -1,7 +1,6 @@
-<div class="user-details-wrapper">
+<div class="user-details-wrapper" [ngClass]="{'spinner--hide' : !hideSpinner}">
   <mat-card class="example-card user-details">
     <mat-card-header>
-      <div mat-card-avatar class="example-header_image"></div>
       <mat-card-title>{{userDetails.last_name}} {{userDetails.first_name}}</mat-card-title>
       <mat-card-subtitle>{{userDetails.email}}</mat-card-subtitle>
     </mat-card-header>
@@ -14,3 +13,5 @@
     </mat-card-actions>
   </mat-card>
 </div>
+<app-spinner class="spinner" [ngClass]="{'spinner--hide' : hideSpinner}">
+</app-spinner>

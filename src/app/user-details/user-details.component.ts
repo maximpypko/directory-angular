@@ -10,8 +10,9 @@ import { UserService } from '../service/userService';
 })
 export class UserDetailsComponent implements OnInit {
   
-  userDetails!: UserDetails
-  visibleEditForm:boolean = false
+  visibleEditForm: boolean = false;
+  hideSpinner: boolean = false;
+  userDetails!: UserDetails;
 
   constructor(
     private userService: UserService,
@@ -20,19 +21,21 @@ export class UserDetailsComponent implements OnInit {
   ) { }
  
   ngOnInit(): void {
+    
     const id: any = this.activatedRoute.snapshot.params.id;
 
     this.userService.getUserById(id).subscribe(response => {
-      this.userDetails = response.data;
+        this.userDetails = response.data;
+        this.hideSpinner = true;
     })
   }
   
   showEditForm() {
-    this.router.navigateByUrl(`home/edit_user/${this.userDetails.id}`)
+    this.router.navigateByUrl(`home/edit_user/${this.userDetails.id}`);
   }
   
   deleteUser() {
-    this.userService.deleteUserById(this.userDetails.id).subscribe(response => console.log(response));
+    this.userService.deleteUserById(this.userDetails.id).subscribe(response => alert("User deleted"));
     this.router.navigateByUrl("home")
   }
 }

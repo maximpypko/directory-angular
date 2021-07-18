@@ -20,7 +20,6 @@ export class AuthorizationComponent implements OnInit {
     private loginRequest: authorizationRequest,
     private router: Router,
     private tokenService: TokenService
-
   ) {}
 
   ngOnInit(): void {
@@ -34,19 +33,19 @@ export class AuthorizationComponent implements OnInit {
     const {login, password} = this.authorizationForm.value;
 
     if (login && password) {
+
       const loginObject: Login = {
         email: login,
         password
       };
       
       this.loginRequest.login(loginObject).subscribe(response => {
-      
         if (response) {
           this.tokenService.setToken(response.token);
-          this.router.navigateByUrl("home")
+          this.router.navigateByUrl("home");
         }
-
       });
+
     } else {
       alert('Passwords not coincidence');
     }

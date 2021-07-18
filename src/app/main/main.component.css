@@ -50,11 +50,3 @@
 .home__card p{
   margin-bottom: 0;
 }
-
-.home__progress-bar--hide{
-  visibility: hidden;
-}
-
-.home__progress-bar{
-  color: aqua;
-}

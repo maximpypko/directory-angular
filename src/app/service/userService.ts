@@ -12,8 +12,8 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
   
-  getUsers():Observable<any>{
-    return this.http.get(Api.URL + '/users?page=1')
+  getUsers(page: number): Observable<any>{
+    return this.http.get(Api.URL + '/users?page=' + page)
   }
 
   getUserById(id:string):Observable<any>{

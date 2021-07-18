@@ -1,17 +1,19 @@
 .user-details-wrapper{
+  position: relative;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.user-details-wrapper--opacity{
-  opacity: .3;
 }
 
 .user-details{
-  width: 50%;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 40%;
+  max-width: 400px;
 }
+
 .user-details__butttons{
   display: flex;
   justify-content: space-around;
@@ -29,4 +31,8 @@
 }
 .user-details__unVisibleEditForm{
   border: 3px solid green;
+}
+
+mat-card .spinner--hide {
+  display: none;
 }

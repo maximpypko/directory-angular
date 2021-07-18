@@ -11,8 +11,8 @@ import { Router } from '@angular/router';
 })
 
 export class AddUserComponent implements OnInit {
-  addUserForm!:FormGroup
-  userRegister!:registeredUser
+  addUserForm!: FormGroup;
+  userRegister!: registeredUser;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -30,7 +30,8 @@ export class AddUserComponent implements OnInit {
   onSubmit(){
 
     if (this.addUserForm.valid) {
-      const {name, job} = this.addUserForm.value
+      
+      const { name, job } = this.addUserForm.value;
       const userData: registeredUser = {
         name,
         job
@@ -38,10 +39,11 @@ export class AddUserComponent implements OnInit {
 
       this.userService.registerUser(userData).subscribe(response => {
         if(response){
-          this.userRegister = response
-          this.router.navigateByUrl("home")
+          this.userRegister = response;
+          this.router.navigateByUrl("home");
         }
       });
+
     } else {
       alert("Enter correct name or title")
     }

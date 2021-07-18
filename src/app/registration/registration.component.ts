@@ -28,7 +28,7 @@ export class RegistrationComponent implements OnInit {
       login: '',
       password: '',
       confirmPassword: ''
-  });
+    });
   }
 
   onSubmit() {
@@ -44,7 +44,7 @@ export class RegistrationComponent implements OnInit {
         
         if (response) {
           this.tokenService.setToken(response.token);
-          this.router.navigateByUrl("home")
+          this.router.navigateByUrl("home");
         }
       });
       
@@ -52,6 +52,6 @@ export class RegistrationComponent implements OnInit {
       alert('Passwords not coincidence');
     }
 
-    this.loginForm.reset()
+    this.loginForm.reset();
   }
 }

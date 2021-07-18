@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,  AfterViewInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-paginator',
   templateUrl: './paginator.component.html',
   styleUrls: ['./paginator.component.css']
 })
-export class PaginatorComponent implements OnInit {
+export class PaginatorComponent implements AfterViewInit  {
 
-  constructor() { }
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+    length = 1000;
+    pageSize = 6;
+    pageSizeOptions: number[] = [6];
 
-  ngOnInit(): void {
+  ngAfterViewInit() {
+    this.paginator.page.subscribe(
+      (event) => console.log(event)
+    );
   }
-
 }

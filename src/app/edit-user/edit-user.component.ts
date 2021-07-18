@@ -31,19 +31,20 @@ export class EditUserComponent implements OnInit {
   editUser(){
 
     if (this.editUserForm.valid) {
-      const {name, job} = this.editUserForm.value
+
+      const { name, job } = this.editUserForm.value;
       const userData: registeredUser = {
         name,
         job
       };
       const id: any = this.activatedRoute.snapshot.params.id;
-      
       this.userService.editUserById(userData, id).subscribe(response => {
 
-        if(response){
-          this.userRegister = response
-          this.router.navigateByUrl(`home`)
-          this.editUserForm.reset()
+        if (response) {
+          this.userRegister = response;
+          this.router.navigateByUrl(`home`);
+          this.editUserForm.reset();
+          alert("User edited");
         }
       });
 
