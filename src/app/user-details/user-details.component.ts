@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserDetails } from '../models/userDetails';
 import { UserService } from '../service/userService';
 
 @Component({
@@ -12,8 +11,15 @@ export class UserDetailsComponent implements OnInit {
   
   visibleEditForm: boolean = false;
   hideSpinner: boolean = false;
-  userDetails!: UserDetails;
+ 
 
+  userDetails ={
+    id:'',
+    last_name:'',
+    first_name:'',
+    email:'',
+    avatar:''
+  }
   constructor(
     private userService: UserService,
     private activatedRoute: ActivatedRoute,

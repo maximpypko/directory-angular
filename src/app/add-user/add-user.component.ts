@@ -39,6 +39,8 @@ export class AddUserComponent implements OnInit {
 
       this.userService.registerUser(userData).subscribe(response => {
         if(response){
+          console.log(response);
+          
           this.userRegister = response;
           this.router.navigateByUrl("home");
         }

@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import{ UserService } from  '../service/userService'
+import{ UserService } from  '../service/userService';
 import { UserDetails } from '../models/userDetails';
 import { Router } from "@angular/router";
 import { PageEvent } from '@angular/material/paginator';
