@@ -3,7 +3,7 @@ import { registeredUser } from '../models/registeredUser';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { UserService } from '../service/userService';
 import { Router } from '@angular/router';
-
+import { arhiveUsers } from '../models/arhiveUsers'
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
@@ -39,8 +39,7 @@ export class AddUserComponent implements OnInit {
 
       this.userService.registerUser(userData).subscribe(response => {
         if(response){
-          console.log(response);
-          
+          arhiveUsers.push(response)
           this.userRegister = response;
           this.router.navigateByUrl("home");
         }
