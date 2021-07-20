@@ -15,6 +15,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
 
 //Components
 import { AppComponent } from './app.component';
@@ -68,7 +69,8 @@ const appRoutes: Routes = [
     MatCardModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

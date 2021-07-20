@@ -1,7 +1,7 @@
 <div class="home">
   <div class="home__header">
     <h1 class="home__title">Users</h1>
-    <button mat-raised-button class="home__button" (click)="showForm()">Add user</button>
+    <button mat-raised-button (click)="showForm()">Add user</button>
   </div>
   <ul class="home__main" [ngClass]="{'spinner--hide' : !hideSpinner}">
     <li *ngFor="let user of users" class="home__card" (click)="showUser(user.id)">

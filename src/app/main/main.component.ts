@@ -39,13 +39,11 @@ export class MainComponent implements OnInit {
 
   getUsers() {
     this.userService.getUsers(this.pageIndex).subscribe(response => {
-      setTimeout(() => {
-        this.users = response.data;
-        this.length = response.total;
-        this.pageIndex = response.total_pages;
-        this.pageSize = response.per_page;
-        this.hideSpinner = true;
-      }, 1000)
+      this.users = response.data;
+      this.length = response.total;
+      this.pageIndex = response.total_pages;
+      this.pageSize = response.per_page;
+      this.hideSpinner = true;
     })
   }
 

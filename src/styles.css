@@ -28,8 +28,7 @@ body {
      border: 1px solid grey;
 }
    
-.form__item,
-.form__button{
+.form__item{
   background-color: grey;
 }
 
@@ -37,13 +36,8 @@ body {
   margin-bottom: 10px;
 }
 
-.form__button{
-  padding: 10px;
-  color: #fff;
-}
-
 .spinner--hide{
- visibility: hidden;
+ display: none;
 }
 
 .spinner{

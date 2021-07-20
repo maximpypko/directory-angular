@@ -1,17 +1,13 @@
 .user-details-wrapper{
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
 }
 
 .user-details{
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  width: 40%;
-  max-width: 400px;
+  width: max-content;
 }
 
 .user-details__butttons{
@@ -20,19 +16,7 @@
   padding-top: 0;
 }
 
-.user-details__buttons-item{
-  padding: 5px 10px;
-  margin-bottom: 10px;
-}
-
 .user-details__visibleEditForm {
   border: 3px solid red;
   visibility: hidden;
-}
-.user-details__unVisibleEditForm{
-  border: 3px solid green;
-}
-
-mat-card .spinner--hide {
-  display: none;
 }

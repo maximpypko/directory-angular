@@ -6,9 +6,9 @@
     </mat-card-header>
     <img mat-card-image src={{userDetails.avatar}} alt="User photo">
     <mat-card-actions class="user-details__butttons">
-      <button mat-button class="user-details__buttons-item" (click)="showEditForm()">Edit
+      <button mat-button (click)="showEditForm()">Edit
         {{userDetails.last_name}}</button>
-      <button mat-button class="user-details__buttons-item" (click)="deleteUser()">Delete
+      <button mat-button (click)="deleteUser()">Delete
         {{userDetails.last_name}}</button>
     </mat-card-actions>
   </mat-card>

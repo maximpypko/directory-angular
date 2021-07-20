@@ -2,9 +2,23 @@
   width: max-content;
   margin: 30px auto;
 }
-.change__title{
-  text-transform: uppercase;
-}
+
 .changeForm__link{
-  color: #fff;
+  text-decoration: none;
+  padding: 5px 10px;
+  border: 1px solid grey;
+  background-color: rgb(197, 197, 197);
+  color: black;
+}
+
+.changeForm__link:not(:last-child){
+  margin: 0px 10px 0 0;
+}
+
+.changeForm__title{
+  margin-top: 10px;
+}
+
+.changeForm__link:hover{
+  background-color: rgb(143, 142, 142);
 }

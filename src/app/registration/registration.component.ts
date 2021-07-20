@@ -44,7 +44,7 @@ export class RegistrationComponent implements OnInit {
         
         if (response) {
           this.tokenService.setToken(response.token);
-          this.router.navigateByUrl("home");
+          this.router.navigateByUrl("authorization");
         }
       });
       

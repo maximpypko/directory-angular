@@ -52,4 +52,6 @@ export class EditUserComponent implements OnInit {
       alert("Enter correct name or title")
     }
   }
+
+  openDialog(){}
 }
