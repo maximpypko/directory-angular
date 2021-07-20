@@ -3,6 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute,Router } from '@angular/router';
 import { registeredUser } from '../models/registeredUser';
 import { UserService } from '../service/userService';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogConfirmationComponent } from '../dialog-confirmation/dialog-confirmation.component';
+import { MessageService } from '../service/messageService';
 
 @Component({
   selector: 'app-edit-user',
@@ -18,7 +21,10 @@ export class EditUserComponent implements OnInit {
     private formBuilder: FormBuilder,
     private userService: UserService,
     private router: Router,
-    private activatedRoute: ActivatedRoute)
+    private activatedRoute: ActivatedRoute,
+    public dialog: MatDialog,
+    private messageService:MessageService
+  )
   { }
    
   ngOnInit(): void {
@@ -44,14 +50,16 @@ export class EditUserComponent implements OnInit {
           this.userRegister = response;
           this.router.navigateByUrl(`home`);
           this.editUserForm.reset();
-          alert("User edited");
+          this.openDialog("User data has been changed");
         }
       });
-
     } else {
-      alert("Enter correct name or title")
+      this.openDialog("Enter correct 'name' or 'title'");
     }
   }
 
-  openDialog(){}
+  openDialog(message: string) {
+    this.messageService.message$ = message;
+    this.dialog.open(DialogConfirmationComponent);
+  }
 }

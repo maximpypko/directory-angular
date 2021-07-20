@@ -3,6 +3,9 @@ import { registeredUser } from '../models/registeredUser';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { UserService } from '../service/userService';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogConfirmationComponent } from '../dialog-confirmation/dialog-confirmation.component';
+import { MessageService } from '../service/messageService';
 
 @Component({
   selector: 'app-add-user',
@@ -17,7 +20,10 @@ export class AddUserComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
-    private router: Router)
+    private router: Router,
+    public dialog: MatDialog,
+    private messageService:MessageService
+  )
   { }
    
   ngOnInit(): void {
@@ -41,11 +47,17 @@ export class AddUserComponent implements OnInit {
         if(response){
           this.userRegister = response;
           this.router.navigateByUrl("home");
+          this.openDialog("User has been added");
         }
       });
 
     } else {
-      alert("Enter correct name or title")
+      this.openDialog("Enter correct 'name' or 'title'");
     }
+  }
+
+  openDialog(message:string) {
+    this.messageService.message$=message
+    this.dialog.open(DialogConfirmationComponent);
   }
 }

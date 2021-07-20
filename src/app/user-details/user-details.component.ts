@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DialogConfirmationComponent } from '../dialog-confirmation/dialog-confirmation.component';
+import { MessageService } from '../service/messageService';
 import { UserService } from '../service/userService';
 
 @Component({
@@ -23,11 +26,12 @@ export class UserDetailsComponent implements OnInit {
   constructor(
     private userService: UserService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog,
+    private messageService:MessageService
   ) { }
  
   ngOnInit(): void {
-    
     const id: any = this.activatedRoute.snapshot.params.id;
 
     this.userService.getUserById(id).subscribe(response => {
@@ -41,7 +45,15 @@ export class UserDetailsComponent implements OnInit {
   }
   
   deleteUser() {
-    this.userService.deleteUserById(this.userDetails.id).subscribe(response => alert("User deleted"));
-    this.router.navigateByUrl("home")
+    this.userService.deleteUserById(this.userDetails.id).subscribe(response => {
+      if (response) {
+        this.messageService.message$ = "User deleted"
+        this.dialog.open(DialogConfirmationComponent);
+        this.router.navigateByUrl("home")
+      } else {
+        this.messageService.message$ = "something went wrong, please try again"
+        this.dialog.open(DialogConfirmationComponent);
+      }
+    });
   }
 }

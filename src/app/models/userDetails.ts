@@ -4,4 +4,4 @@ export class UserDetails {
     first_name:any
     email:any
     avatar:any
-  }
+}

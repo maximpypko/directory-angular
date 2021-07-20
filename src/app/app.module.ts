@@ -28,6 +28,8 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { PaginatorComponent } from './paginator/paginator.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { DialogConfirmationComponent } from './dialog-confirmation/dialog-confirmation.component';
+import { MessageService } from './service/messageService';
 
 
 const appRoutes: Routes = [
@@ -52,7 +54,8 @@ const appRoutes: Routes = [
     UserDetailsComponent,
     EditUserComponent,
     PaginatorComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    DialogConfirmationComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +75,7 @@ const appRoutes: Routes = [
     MatTableModule,
     MatDialogModule
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
