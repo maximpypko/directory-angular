@@ -36,7 +36,11 @@ const appRoutes: Routes = [
   { path: '', component: ToggleFormsComponent, pathMatch: 'full' },
   { path: 'registration', component: RegistrationComponent },
   { path: 'authorization', component: AuthorizationComponent },
-  { path: 'home', component: MainComponent },
+  { path: 'home',
+   component: MainComponent,
+  //  canActivate:[LoginGuard],
+  //  canDeactivate:[SaveGuard]
+  },
   { path: 'home/add_new_user', component: AddUserComponent },
   { path: 'home/user/:id', component: UserDetailsComponent },
   { path: 'home/edit_user/:id', component: EditUserComponent },
@@ -75,7 +79,11 @@ const appRoutes: Routes = [
     MatTableModule,
     MatDialogModule
   ],
-  providers: [MessageService],
+  providers: [
+    MessageService, 
+    // LoginGuard, 
+    // SaveGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
