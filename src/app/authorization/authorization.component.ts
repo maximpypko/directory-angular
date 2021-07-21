@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { authorizationRequest } from '../requests/authorizationRequest';
 import { Login } from '../models/login';
 import { TokenService } from '../service/tokenService'
+import { MatDialog } from '@angular/material/dialog';
+import { MessageService } from '../service/messageService';
+import { DialogConfirmationComponent } from '../dialog-confirmation/dialog-confirmation.component';
 
 @Component({
   selector: 'app-authorization',
@@ -19,7 +22,9 @@ export class AuthorizationComponent implements OnInit {
     private formBuilder: FormBuilder,
     private loginRequest: authorizationRequest,
     private router: Router,
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    public dialog: MatDialog,
+    private messageService: MessageService
   ) {}
 
   ngOnInit(): void {
@@ -47,7 +52,8 @@ export class AuthorizationComponent implements OnInit {
       });
 
     } else {
-      alert('Passwords not coincidence');
+      this.messageService.message$ = "Enter your data correctly"
+      this.dialog.open(DialogConfirmationComponent);
     }
   }
 }

@@ -1,8 +1,4 @@
 .user-details-wrapper{
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
 }
 
@@ -12,11 +8,5 @@
 
 .user-details__butttons{
   display: flex;
-  justify-content: space-around;
-  padding-top: 0;
-}
-
-.user-details__visibleEditForm {
-  border: 3px solid red;
-  visibility: hidden;
+  justify-content: space-between;
 }

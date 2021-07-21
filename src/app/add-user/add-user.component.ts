@@ -57,7 +57,7 @@ export class AddUserComponent implements OnInit {
   }
 
   openDialog(message:string) {
-    this.messageService.message$=message
+    this.messageService.message$ = message;
     this.dialog.open(DialogConfirmationComponent);
   }
 }

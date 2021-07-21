@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from "@angular/router";
+import { DialogConfirmationComponent } from '../dialog-confirmation/dialog-confirmation.component';
 import { Login } from '../models/login';
 import { LoginRequest } from '../requests/loginRequest';
+import { MessageService } from '../service/messageService';
 import { TokenService } from '../service/tokenService'
 
 @Component({
@@ -20,7 +23,9 @@ export class RegistrationComponent implements OnInit {
     private formBuilder: FormBuilder,
     private loginRequest: LoginRequest,
     private router: Router,
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    public dialog: MatDialog,
+    private messageService:MessageService
   ) { }
   
   ngOnInit(): void {
@@ -49,7 +54,8 @@ export class RegistrationComponent implements OnInit {
       });
       
     } else {
-      alert('Passwords not coincidence');
+      this.messageService.message$ = "Enter your data correctly"
+      this.dialog.open(DialogConfirmationComponent);
     }
 
     this.loginForm.reset();
