@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { authorizationRequest } from '../requests/authorizationRequest';
 import { Login } from '../models/login';
 import { TokenService } from '../service/tokenService'
@@ -17,6 +17,7 @@ export class AuthorizationComponent implements OnInit {
 
   hide = true;
   authorizationForm!: FormGroup;
+  saved: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -28,6 +29,8 @@ export class AuthorizationComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.tokenService.clearToken();
+    
     this.authorizationForm = this.formBuilder.group({
       login: '',
       password: ''
@@ -46,6 +49,7 @@ export class AuthorizationComponent implements OnInit {
       
       this.loginRequest.login(loginObject).subscribe(response => {
         if (response) {
+          
           this.tokenService.setToken(response.token);
           this.router.navigateByUrl("home");
         }

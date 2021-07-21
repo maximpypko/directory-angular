@@ -30,20 +30,17 @@ import { PaginatorComponent } from './paginator/paginator.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { DialogConfirmationComponent } from './dialog-confirmation/dialog-confirmation.component';
 import { MessageService } from './service/messageService';
+import { HomeGuardsGuard } from './guards/home-guards.guard';
 
 
 const appRoutes: Routes = [
   { path: '', component: ToggleFormsComponent, pathMatch: 'full' },
   { path: 'registration', component: RegistrationComponent },
   { path: 'authorization', component: AuthorizationComponent },
-  { path: 'home',
-   component: MainComponent,
-  //  canActivate:[LoginGuard],
-  //  canDeactivate:[SaveGuard]
-  },
-  { path: 'home/add_new_user', component: AddUserComponent },
-  { path: 'home/user/:id', component: UserDetailsComponent },
-  { path: 'home/edit_user/:id', component: EditUserComponent },
+  { path: 'home',component: MainComponent, canActivate: [HomeGuardsGuard] },
+  { path: 'home/add_new_user', component: AddUserComponent, canActivate: [HomeGuardsGuard] },
+  { path: 'home/user/:id', component: UserDetailsComponent, canActivate: [HomeGuardsGuard] },
+  { path: 'home/edit_user/:id', component: EditUserComponent, canActivate: [HomeGuardsGuard] },
   { path: '**', redirectTo: '' }
 ]
 
@@ -80,9 +77,7 @@ const appRoutes: Routes = [
     MatDialogModule
   ],
   providers: [
-    MessageService, 
-    // LoginGuard, 
-    // SaveGuard
+    MessageService
   ],
   bootstrap: [AppComponent]
 })

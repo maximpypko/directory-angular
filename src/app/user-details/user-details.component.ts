@@ -14,7 +14,6 @@ export class UserDetailsComponent implements OnInit {
   
   visibleEditForm: boolean = false;
   hideSpinner: boolean = false;
- 
 
   userDetails ={
     id:'',
@@ -46,7 +45,7 @@ export class UserDetailsComponent implements OnInit {
   
   deleteUser() {
     this.userService.deleteUserById(this.userDetails.id).subscribe(response => {
-      if (response) {
+      if (!response) {
         this.messageService.message$ = "User deleted"
         this.dialog.open(DialogConfirmationComponent);
         this.router.navigateByUrl("home")

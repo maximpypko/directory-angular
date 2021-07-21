@@ -29,6 +29,8 @@ export class RegistrationComponent implements OnInit {
   ) { }
   
   ngOnInit(): void {
+    this.tokenService.clearToken();
+
     this.loginForm = this.formBuilder.group({
       login: '',
       password: '',
@@ -48,6 +50,8 @@ export class RegistrationComponent implements OnInit {
       this.loginRequest.login(loginObject).subscribe(response => {
         
         if (response) {
+          console.log(response);
+          
           this.tokenService.setToken(response.token);
           this.router.navigateByUrl("authorization");
         }
