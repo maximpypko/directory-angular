@@ -52,7 +52,7 @@ export class AddUserComponent implements OnInit {
       });
 
     } else {
-      this.openDialog("Enter correct 'name' or 'title'");
+      this.openDialog("Enter correct 'name' or 'job'");
     }
   }
 

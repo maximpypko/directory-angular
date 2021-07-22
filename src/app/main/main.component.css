@@ -4,13 +4,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #424242;
-  color: #C7C7C7;
+  color: #636363;
 }
 
 .home__title{
   margin: 0;
   vertical-align: center;
+  font-weight: 500;
 }
 
 .home__main{

@@ -5,19 +5,16 @@ html, body {
 }
 
 body {
-     margin: 0; 
-     font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 .container{
   width: 90%;
-  height: 100%;
   margin: 0 auto;
   padding: 10px;
   display: flex;
   justify-content: center;
-  border-left: 1px solid grey;
-  border-right: 1px solid grey;
 }
 
 .form {
@@ -29,7 +26,15 @@ body {
   background: rgb(138, 137, 137);
   border: 1px solid grey;
 }
-   
+.form__item{
+  padding: 5px 10px;
+  margin-bottom: 10px;
+}
+
+.form__button{
+  cursor: pointer;
+}
+
 .spinner--hide{
  display: none;
 }

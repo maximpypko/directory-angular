@@ -16,7 +16,7 @@ import { TokenService } from '../service/tokenService'
 
 export class RegistrationComponent implements OnInit {
 
-  hide = true;
+
   loginForm!: FormGroup;
   
   constructor(

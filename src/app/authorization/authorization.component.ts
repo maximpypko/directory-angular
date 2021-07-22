@@ -15,9 +15,7 @@ import { DialogConfirmationComponent } from '../dialog-confirmation/dialog-confi
 })
 export class AuthorizationComponent implements OnInit {
 
-  hide = true;
   authorizationForm!: FormGroup;
-  saved: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,

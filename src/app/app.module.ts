@@ -28,10 +28,9 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { PaginatorComponent } from './paginator/paginator.component';
 import { SpinnerComponent } from './spinner/spinner.component';
-import { DialogConfirmationComponent } from './dialog-confirmation/dialog-confirmation.component';
 import { MessageService } from './service/messageService';
 import { HomeGuardsGuard } from './guards/home-guards.guard';
-
+import { DialogConfirmationComponent } from './dialog-confirmation/dialog-confirmation.component';
 
 const appRoutes: Routes = [
   { path: '', component: ToggleFormsComponent, pathMatch: 'full' },

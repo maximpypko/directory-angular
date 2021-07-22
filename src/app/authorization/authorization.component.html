@@ -1,15 +1,5 @@
 <form class="form" (ngSubmit)="onSubmit()" [formGroup]="authorizationForm">
-  <mat-form-field appearance="fill">
-    <mat-label>Login</mat-label>
-    <input matInput formControlName='login' autocomplete="on">
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Enter your password</mat-label>
-    <input formControlName='password' matInput [type]="hide ? 'password' : 'text'" autocomplete="on">
-    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-      [attr.aria-pressed]="hide">
-      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-    </button>
-  </mat-form-field>
-  <button mat-button class="form__button">Authorization</button>
+  <input class="form__item" formControlName='login' autocomplete="on" placeholder="login">
+  <input class="form__item" placeholder="password" formControlName='password' type='password' autocomplete="on">
+  <button class="form__button">Authorization</button>
 </form>

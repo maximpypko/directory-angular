@@ -1,23 +1,6 @@
 <form class="form" (ngSubmit)="onSubmit()" [formGroup]="loginForm">
-    <mat-form-field appearance="fill">
-        <mat-label>Login</mat-label>
-        <input matInput formControlName='login' autocomplete="on">
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Enter your password</mat-label>
-        <input formControlName='password' matInput [type]="hide ? 'password' : 'text'" autocomplete="on">
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-            [attr.aria-pressed]="hide">
-            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Confirm your password</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'" formControlName='confirmPassword' autocomplete="on">
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-            [attr.aria-pressed]="hide">
-            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
-    </mat-form-field>
-    <button mat-button color="primary">Registration</button>
+    <input class="form__item" placeholder="login" formControlName='login' autocomplete="on">
+    <input class="form__item" placeholder = "password" type='password' formControlName='password' autocomplete="on">
+    <input class="form__item" placeholder = "confirm password" type='password' formControlName='confirmPassword' autocomplete="on">
+    <button class="form__button">Registration</button>
 </form>

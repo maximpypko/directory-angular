@@ -6,11 +6,14 @@ import { MessageService } from '../service/messageService';
   templateUrl: './dialog-confirmation.component.html',
   styleUrls: ['./dialog-confirmation.component.css']
 })
+
 export class DialogConfirmationComponent implements OnInit {
-  message=''
+  message='';
+  hide = false;
   constructor(private messageService:MessageService) { }
 
   ngOnInit(): void {
     this.message = this.messageService.message$;
+    this.hide = true;
   }
 }
