@@ -9,11 +9,10 @@ import { MessageService } from '../service/messageService';
 
 export class DialogConfirmationComponent implements OnInit {
   message='';
-  hide = false;
+
   constructor(private messageService:MessageService) { }
 
   ngOnInit(): void {
     this.message = this.messageService.message$;
-    this.hide = true;
   }
 }
