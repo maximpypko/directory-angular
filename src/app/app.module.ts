@@ -16,6 +16,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
 
 //Components
 import { AppComponent } from './app.component';
@@ -73,7 +74,8 @@ const appRoutes: Routes = [
     MatPaginatorModule,
     MatProgressSpinnerModule,
     MatTableModule,
-    MatDialogModule
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [
     MessageService
